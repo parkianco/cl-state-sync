@@ -1,0 +1,24 @@
+cl-state-sync
+=============
+
+This library was extracted from the CLPIC (Common Lisp P2P Intellectual
+Property Chain) project.
+
+Original source: https://github.com/clpic/clpic
+Extracted module: src/sync/state/
+
+The extraction includes functionality for:
+- Snapshot-based state synchronization
+- UTXO set recovery
+- State trie reconstruction
+- Merkle proof verification
+
+This is a standalone library with no external dependencies beyond SBCL.
+
+Authors and Contributors
+------------------------
+See the CLPIC project for full contributor list.
+
+Third-Party Components
+----------------------
+None. This library is pure Common Lisp with zero external dependencies.
