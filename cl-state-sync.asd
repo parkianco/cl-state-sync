@@ -7,7 +7,7 @@
 
 (asdf:defsystem #:cl-state-sync
   :description "Pure CL blockchain state synchronization library"
-  :author "CLPIC Project"
+  :author "Parkian Company LLC"
   :license "MIT"
   :version "0.1.0"
   :serial t
