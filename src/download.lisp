@@ -234,7 +234,7 @@ Arguments:
     (setf (download-task-error task) error)
     (incf (download-task-retries task))
 
-    (let ((max-retries (sync-config-retry-limit
+    (let ((max-retries (config-retry-limit
                         (download-manager-config manager))))
       (if (< (download-task-retries task) max-retries)
           ;; Retry: put back in queue
@@ -332,7 +332,7 @@ Arguments:
 Returns:
   T if stored successfully."
   (let* ((config (download-manager-config manager))
-         (path (sync-config-storage-path config)))
+         (path (config-storage-path config)))
     (when path
       (let ((chunk-file (format nil "~A/chunk-~6,'0D.dat"
                                 path (chunk-index chunk))))

@@ -14,6 +14,7 @@
 
 (defstruct (sync-config
             (:constructor %make-sync-config)
+            (:conc-name config-)
             (:copier nil))
   "Configuration for state synchronization.
 
@@ -88,6 +89,7 @@ Slots:
 
 (defstruct (snapshot-chunk
             (:constructor %make-snapshot-chunk)
+            (:conc-name chunk-)
             (:copier nil))
   "A chunk of snapshot data.
 

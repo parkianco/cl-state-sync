@@ -472,7 +472,7 @@ Arguments:
 
 Returns:
   List of checkpoint instances."
-  (let ((path (sync-config-storage-path config)))
+  (let ((path (config-storage-path config)))
     (unless path
       (return-from list-checkpoints nil))
 
