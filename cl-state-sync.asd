@@ -33,4 +33,6 @@
     :components
     ((:file "test-state-sync"))))
   :perform (test-op (o c)
-             (uiop:symbol-call :cl-state-sync/test :run-tests)))
+             (let ((result (uiop:symbol-call :cl-state-sync/test :run-tests)))
+               (unless result
+                 (error "Tests failed")))))
