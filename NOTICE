@@ -4,7 +4,6 @@ cl-state-sync
 This library was extracted from the CLPIC (Common Lisp P2P Intellectual
 Property Chain) project.
 
-Original source: https://github.com/clpic/clpic
 Extracted module: src/sync/state/
 
 The extraction includes functionality for:
