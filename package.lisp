@@ -50,11 +50,11 @@
 
    #:snapshot-header
    #:make-snapshot-header
-   #:header-magic
-   #:header-version
-   #:header-block-height
-   #:header-chunk-count
-   #:header-total-size
+   #:snapshot-header-magic
+   #:snapshot-header-version
+   #:snapshot-header-block-height
+   #:snapshot-header-chunk-count
+   #:snapshot-header-total-size
 
    ;; ============================================================================
    ;; UTXO Types
@@ -86,9 +86,9 @@
 
    #:trie-proof
    #:make-trie-proof
-   #:proof-key
-   #:proof-value
-   #:proof-nodes
+   #:trie-proof-key
+   #:trie-proof-value
+   #:trie-proof-nodes
 
    ;; ============================================================================
    ;; Download Operations
@@ -104,10 +104,10 @@
 
    #:download-task
    #:make-download-task
-   #:task-id
-   #:task-type
-   #:task-status
-   #:task-retries
+   #:download-task-id
+   #:download-task-type
+   #:download-task-status
+   #:download-task-retries
 
    #:request-chunk
    #:process-chunk-response
@@ -147,12 +147,12 @@
    ;; ============================================================================
    #:sync-progress
    #:make-sync-progress
-   #:progress-phase
-   #:progress-current
-   #:progress-total
-   #:progress-bytes-downloaded
-   #:progress-chunks-verified
-   #:progress-estimated-remaining
+   #:sync-progress-phase
+   #:sync-progress-current
+   #:sync-progress-total
+   #:sync-progress-bytes-downloaded
+   #:sync-progress-chunks-verified
+   #:sync-progress-estimated-remaining
 
    ;; ============================================================================
    ;; Checkpointing
