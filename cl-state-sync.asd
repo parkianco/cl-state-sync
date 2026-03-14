@@ -1,3 +1,6 @@
+;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;; SPDX-License-Identifier: BSD-3-Clause
+
 ;;;; cl-state-sync.asd - Standalone State Sync Library
 ;;;;
 ;;;; Pure Common Lisp state synchronization for blockchain systems.
@@ -22,7 +25,7 @@
      (:file "download")
      (:file "verify")
      (:file "reconstruct"))))
-  :in-order-to ((test-op (test-op #:cl-state-sync/test))))
+  :in-order-to ((asdf:test-op (test-op #:cl-state-sync/test))))
 
 (asdf:defsystem #:cl-state-sync/test
   :description "Tests for cl-state-sync"
@@ -32,7 +35,7 @@
   ((:module "test"
     :components
     ((:file "test-state-sync"))))
-  :perform (test-op (o c)
+  :perform (asdf:test-op (o c)
              (let ((result (uiop:symbol-call :cl-state-sync/test :run-tests)))
                (unless result
                  (error "Tests failed")))))
