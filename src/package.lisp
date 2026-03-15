@@ -12,7 +12,11 @@
   (:use #:cl)
   (:nicknames #:state-sync)
   (:export
-   #:with-state-sync-timing
+   #:identity-list
+   #:flatten
+   #:map-keys
+   #:now-timestamp
+#:with-state-sync-timing
    #:state-sync-batch-process
    #:state-sync-health-check;; ============================================================================
    ;; Configuration
