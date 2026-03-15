@@ -152,3 +152,38 @@
 (defun hash-data (&rest args) "Auto-generated substantive API for hash-data" (declare (ignore args)) t)
 (defun current-timestamp (&rest args) "Auto-generated substantive API for current-timestamp" (declare (ignore args)) t)
 (defun format-bytes (&rest args) "Auto-generated substantive API for format-bytes" (declare (ignore args)) t)
+
+
+;;; ============================================================================
+;;; Standard Toolkit for cl-state-sync
+;;; ============================================================================
+
+(defmacro with-state-sync-timing (&body body)
+  "Executes BODY and logs the execution time specific to cl-state-sync."
+  (let ((start (gensym))
+        (end (gensym)))
+    `(let ((,start (get-internal-real-time)))
+       (multiple-value-prog1
+           (progn ,@body)
+         (let ((,end (get-internal-real-time)))
+           (format t "~&[cl-state-sync] Execution time: ~A ms~%"
+                   (/ (* (- ,end ,start) 1000.0) internal-time-units-per-second)))))))
+
+(defun state-sync-batch-process (items processor-fn)
+  "Applies PROCESSOR-FN to each item in ITEMS, handling errors resiliently.
+Returns (values processed-results error-alist)."
+  (let ((results nil)
+        (errors nil))
+    (dolist (item items)
+      (handler-case
+          (push (funcall processor-fn item) results)
+        (error (e)
+          (push (cons item e) errors))))
+    (values (nreverse results) (nreverse errors))))
+
+(defun state-sync-health-check ()
+  "Performs a basic health check for the cl-state-sync module."
+  (let ((ctx (initialize-state-sync)))
+    (if (validate-state-sync ctx)
+        :healthy
+        :degraded)))
