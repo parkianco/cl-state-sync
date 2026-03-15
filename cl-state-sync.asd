@@ -10,21 +10,18 @@
 
 (asdf:defsystem #:cl-state-sync
   :description "Pure CL blockchain state synchronization library"
-  :author "Parkian Company LLC"
-  :license "MIT"
+  :author "Park Ian Co"
+  :license "Apache-2.0"
   :version "0.1.0"
   :serial t
   :depends-on ()  ; No external deps
   :components
   ((:file "package")
    (:module "src"
-    :serial t
-    :components
-    ((:file "util")
-     (:file "snapshot")
-     (:file "download")
-     (:file "verify")
-     (:file "reconstruct"))))
+                :components ((:file "package")
+                             (:file "conditions" :depends-on ("package"))
+                             (:file "types" :depends-on ("package"))
+                             (:file "cl-state-sync" :depends-on ("package" "conditions" "types"))))))
   :in-order-to ((asdf:test-op (test-op #:cl-state-sync/test))))
 
 (asdf:defsystem #:cl-state-sync/test
